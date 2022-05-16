@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import Image from 'next/image'
+import { useEffect,useState } from 'react';
 import styles from '../styles/Home.module.css'
 import {
   FiGithub,
@@ -10,6 +11,12 @@ import {
 } from "react-icons/ai";
 import heroImage from "../public/images/hero-image.png"
 export default function Home() {
+
+  const [color, setColor] = useState('blue');
+  // During hydration `useEffect` is called. `window` is available in `useEffect`. In this case because we know we're in the browser checking for window is not needed. If you need to read something from window that is fine.
+  // By calling `setColor` in `useEffect` a render is triggered after hydrating, this causes the "browser specific" value to be available. In this case 'red'.
+  useEffect(() => setColor('red'), [])
+
   return (
     <div className = "bg-gradient-to-tr pb-10 to-[#3318FF]/95  from-black  backdrop-blur-sm w-screen h-screen flex justify-center relative overflow-x-hidden" >
       <Head>
