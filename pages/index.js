@@ -1,3 +1,4 @@
+import React from 'react';
 import Head from 'next/head'
 import Image from 'next/image'
 import { useEffect,useState } from 'react';
@@ -10,6 +11,8 @@ import {
   AiOutlineArrowDown
 } from "react-icons/ai";
 import heroImage from "../public/images/hero-image.png"
+
+
 export default function Home() {
 
   const [color, setColor] = useState('blue');
